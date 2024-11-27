@@ -20,7 +20,7 @@ namespace Task.Controllers
         public ActionResult<List<ModelTask>> AdicionarTask( ModelTask novo)
         {
             if (novo.Id == 0 && listaTasks.Count > 0)
-                novo.Id = listaTasks[listaTasks.Count].Id + 1;
+                novo.Id = listaTasks[listaTasks.Count - 1].Id + 1;
 
             if (novo.Description.Length < 10)
                 return BadRequest("Descrição Insuficiente (Min 10 caracteres)");
